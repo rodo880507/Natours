@@ -1,0 +1,60 @@
+@mixin animacion($direccion,$duracion,$funciondetiempo,$espera) {
+    animation-name: $direccion;
+    animation-duration: $duracion;
+    animation-timing-function:$funciondetiempo;
+    animation-delay: $espera;
+ }
+@mixin header-elements($display,$font-size,$font-weight,$letter-spacing) {
+    display: $display;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin boton-seudoclases($posicion,$transicion) {
+    display: inline-block;
+    border-radius: 10rem;
+    position: $posicion;
+    transition: $transicion;    
+}
+@mixin boton-transform($transform,$box-shadow) {
+    transform: $transform;
+    box-shadow: $box-shadow;
+}
+@mixin movimientos($nombre,$cero,$sesenta,$ochenta,$cien) {
+    @keyframes #{$nombre}{
+        0%{
+            opacity: 0;
+            transform: $cero;
+        }
+        60%{
+            transform: $sesenta;
+        }
+        80%{
+            transform: $ochenta;
+        }
+        100%{
+            opacity: 1;
+            transform: $cien;
+        }
+    }
+}
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin centrar_objeto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+// @mixin card-header-text($color1,$color2,$top){
+//     background-image: linear-gradient(to right bottom,rgba($color1,0.5),rgba($color2,0.5));
+//     position: absolute;    
+//     left: 70%;
+//     top: $top; 
+// }

@@ -1,0 +1,4 @@
+@include movimientos(moveinLeft,translateX(-10rem) rotate(0deg),rotate(20deg),translateX(2rem),translate(0));
+@include movimientos(moveinRight,translateX(10rem) rotate(0deg),"",translateX(-2rem),translate(0));
+@include movimientos(moveLogo,translateX(2rem) rotate(180deg),"","",translate(0) rotate(0deg));
+@include movimientos(moveinBottom,translateY(4rem),"","",translate(0) rotate(0deg));
