@@ -9,6 +9,18 @@
 }
 .u-margin-bottom-big{
     margin-bottom: 8rem !important;
+    @include respond(tab-port) { //width > 715 and width < 900
+        margin-bottom: 0 !important;  
+    };
+    @include respond(tab-port-media) { //width > 600 and width < 715
+        margin-bottom: 0 !important;    
+    };
+    @include respond(phone) { //width < 600
+        margin-bottom: 0 !important;   
+    };
+    @include respond(phone-low) { //width < 555
+        margin-bottom: 0 !important; 
+    };
 }
 .u-margin-top-small{
     margin-bottom: 1.5rem !important;
@@ -18,4 +30,16 @@
 }
 .u-margin-top-big{
     margin-top: 8rem !important;
+    @include respond(tab-port) { //width > 715 and width < 900
+        margin-top: 0 !important;  
+    };
+    @include respond(tab-port-media) { //width > 600 and width < 715
+        margin-top: 0 !important;    
+    };
+    @include respond(phone) { //width < 600
+        margin-top: 0 !important;   
+    };
+    @include respond(phone-low) { //width < 555
+        margin-top: 0 !important; 
+    };
 }

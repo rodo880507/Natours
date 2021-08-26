@@ -3,13 +3,29 @@
      &__main{
          padding-left: 10rem;
          padding-right: 10rem;
+         @include respond(tab-port) { //width > 715 and width < 900
+            padding-left: 0;
+            padding-right: 0;
+         };
+         @include respond(tab-port-media) { //width > 600 and width < 715
+            padding-left:0;
+            padding-right:0;   
+         };
      }
      &__menu{        
       font-size: 1.1rem;   
       padding-top: 1rem;
       border-top: .1rem solid $color-row2;       
       cursor: pointer; 
-      display:inline-block;      
+      display:inline-block;   
+      @include respond(tab-port) { //width > 715 and width < 900
+            width:100%;
+            text-align: center;
+      };
+      @include respond(tab-port-media) { //width > 600 and width < 715
+            width:100%;
+            text-align: center;       
+      };   
      }
      &__item {
         display:inline-block;
@@ -41,6 +57,14 @@
         float: right;
         border-top: .1rem solid $color-row2;
         font-size: 1.3rem;  
-        color:inherit;              
+        color:inherit;  
+        @include respond(tab-port) { //width > 715 and width < 900
+         width:100%;
+         float:none;
+         };
+         @include respond(tab-port-media) { //width > 600 and width < 715
+               width:100%;
+               float:none;   
+         };            
      }
 }

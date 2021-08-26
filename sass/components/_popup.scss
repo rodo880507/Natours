@@ -10,6 +10,13 @@
     visibility: hidden;
     transition: all .3s;
     
+    @supports (-webkit-backdrop-filter: blur(.1rem)) or (backdrop-filter: blur(.1rem))
+    {
+        -webkit-backdrop-filter: blur(.1rem);
+        backdrop-filter: blur(.1rem);
+        background-color: rgba($color-black,.3);
+    }
+
     &__content {  
     @include centrar_objeto;         
     width:80%;              
@@ -20,17 +27,32 @@
     overflow: hidden;
     transform: translate(-50%,-50%) scale(.25);
     transition: all .5s .2s;
+    @include respond(tab-land) { //width > 900 and width < 1200 
+        width:95%;
+    }
+
     }
     &__right {
         width:66.66666667%;
         display:table-cell;
         vertical-align: middle;
         padding: 3rem 5rem;
+        @include respond(tab-land) { //width > 900 and width < 1200 
+            width: 100%;
+            display: inline-block;
+            padding: 1rem 2rem 2rem;
+        }
     }
     &__left {
         width:33.33333333%;
         display:table-cell;
-        
+        @include respond(tab-land) { //width > 900 and width < 1200 
+            position: relative;
+            left: 18%;         
+            vertical-align: middle;   
+            display:-moz-inline-box;
+            display: -webkit-inline-box;
+        }        
     }
     
     &__img {
@@ -50,7 +72,6 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
-
     }
     &:target {
         opacity: 1;
@@ -59,8 +80,7 @@
     &:target &__content {
         transform: translate(-50%,-50%) scale(1);
     }
-    &__close{
-
+    &__close{   
         &:link,
         &:visited {
             text-decoration: none;
@@ -72,6 +92,10 @@
             color: $color-row2;
             transition: all .2s;
             line-height: 1;
+            @include respond(phone) { //width < 600
+                top: 9.5rem;
+                right: 2.5rem;         
+            };
         }
         &:hover {
             color: $color-primary;

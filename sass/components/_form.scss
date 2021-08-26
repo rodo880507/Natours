@@ -46,6 +46,10 @@
         width: 49%;
         display: inline-block;
 
+        @include respond(phone-low){
+            width: 100%;
+            margin-bottom: 1rem;
+        }
     }
     &__radio-label {
         font-size: $default-font-size;

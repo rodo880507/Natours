@@ -7,27 +7,51 @@
     padding: 6rem; 
     padding-left: 9rem;    
     font-size:$default-font-size;   
-    transform:skewX(-12deg);    
+    transform:skewX(-12deg);  
+    
+    @include respond(tab-port) { //width > 715 and width < 900  
+        backface-visibility: hidden; 
+        padding: 3rem; 
+        padding-left: 6rem;
+    }
+    @include respond(phone-low) { //width < 555
+        transform:skewX(0);
+    };
+
     &__shape {        
         width: 15rem;
         height: 15rem;
-        float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        -webkit-clip-path:circle(50% at 50% 50%) ;
-        clip-path:circle(50% at 50% 50%) ;
+        float: left;       
         transform: translateX(-3rem) skewX(12deg); 
-        position: relative  ;  
+        position: relative  ;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports (clip-path: circle(0 at 0 0)) or (-webkit-clip-path: circle(0 0)) or
+        (shape-outside: circle(0 at 0 0 )) or  (-webkit-shape-outside: circle(0 at 0 0 ))
+        {
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            -webkit-clip-path:circle(50% at 50% 50%) ;
+            clip-path:circle(50% at 50% 50%) ;
+        }
+
+        @include respond(phone-low) { //width < 555
+            transform:translateX(-3rem) skewX(0);
+        };  
                      
     }
     &__img{        
         height: 100%; 
         transform: translateX(-4rem) scale(1.4); 
         backface-visibility: hidden;  
-        transition:all 1s ;                    
+        transition:all .3s ;                    
     }
     &__text {
-        transform: skewX(12deg);        
+        transform: skewX(12deg);   
+        @include respond(phone-low) { //width < 555
+            transform:skewX(0);
+        };     
     }
     &__caption {
         position: absolute;
@@ -54,4 +78,8 @@
 .heading-secondary {
     margin: 6rem;
     padding-bottom: 1rem;
+    @include respond(phone) { //width < 600
+        margin: 1rem;
+        padding-bottom: 0rem;          
+    };
 }
